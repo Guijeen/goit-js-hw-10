@@ -14,19 +14,19 @@ function hadlerPromise(event) {
   console.log(state);
 
   new Promise((resolve, reject) => {
-    setInterval(()=>{
-        if (state === "fulfilled") {
-            resolve(delay)
-        } else {
-            reject(delay)
-        }
-    },delay)
+    setTimeout(() => {
+      if (state === 'fulfilled') {
+        resolve(delay);
+      } else {
+        reject(delay);
+      }
+    }, delay);
   })
     .then(date => {
       iziToast.show({
         message: `✅ Fulfilled promise in ${date}ms`,
         color: 'green',
-        position: 'topRight'
+        position: 'topRight',
       });
     })
     .catch(error => {
