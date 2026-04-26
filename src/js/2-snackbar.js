@@ -13,27 +13,27 @@ function hadlerPromise(event) {
   const state = event.target.elements.state.value;
   console.log(state);
 
-  setTimeout(() => {
-    new Promise((resolve, reject) => {
-      if (state === 'fulfilled') {
-        resolve(delay);
-      } else {
-        reject(delay);
-      }
-    })
-      .then(date => {
-        iziToast.show({
-          message: `✅ Fulfilled promise in ${date}ms`,
-          color: 'green',
-          position: 'topRight',
-        });
-      })
-      .catch(error => {
-        iziToast.show({
-          message: `❌ Rejected promise in ${error}ms`,
-          color: 'red',
-          position: 'topRight',
-        });
+  new Promise((resolve, reject) => {
+    setInterval(()=>{
+        if (state === "fulfilled") {
+            resolve(delay)
+        } else {
+            reject(delay)
+        }
+    },delay)
+  })
+    .then(date => {
+      iziToast.show({
+        message: `✅ Fulfilled promise in ${date}ms`,
+        color: 'green',
+        position: 'topRight'
       });
-  }, delay);
+    })
+    .catch(error => {
+      iziToast.show({
+        message: `❌ Rejected promise in ${error}ms`,
+        color: 'red',
+        position: 'topRight',
+      });
+    });
 }
