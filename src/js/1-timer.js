@@ -26,9 +26,10 @@ let userSelectedDate = null;
 btnStart.addEventListener('click', handlerTimer);
 
 function handlerTimer(event) {
-  intervalId = setInterval(() => {
-    btnStart.disabled = true;
+       btnStart.disabled = true;
     dateTimePicker.disabled = true;
+  intervalId = setInterval(() => {
+ 
     const currentTime = Date.now();
 
     if (userSelectedDate - currentTime <= 0) {

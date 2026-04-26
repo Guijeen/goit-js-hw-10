@@ -30,7 +30,7 @@ function hadlerPromise(event) {
       })
       .catch(error => {
         iziToast.show({
-          message: `❌ Rejected promise in ${delay}ms`,
+          message: `❌ Rejected promise in ${error}ms`,
           color: 'red',
           position: 'topRight',
         });
